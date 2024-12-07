@@ -18,6 +18,9 @@ public class IndexActionFilter : IActionFilter
 
         // bu kontrolü regex denen bir teknmoloji ile yapacağız.
 
+
+        
+
         var modelResult = context.ActionArguments.Values.FirstOrDefault();
         if (modelResult == null)
         {
