@@ -8,7 +8,7 @@ public class IndexActionFilter : IActionFilter
     public void OnActionExecuted(ActionExecutedContext context)
     {
         // bu metot, action çağırıldıktan sonra çalışır!!
-        throw new NotImplementedException();
+        
     }
 
     public void OnActionExecuting(ActionExecutingContext context)
@@ -38,8 +38,16 @@ public class IndexActionFilter : IActionFilter
                 bool isOk = regex.IsMatch(indexViewModel.Email);
                 if (!isOk)
                 {
-                    context.Result = new BadRequestObjectResult("Email uygun değil");
-                    return;
+                    // aşağıdaki gibi bir sonuç döndüğümüzde, ekran viewdan bağımsız bir şekilde oluşmaktadır!!
+
+                    // eğer akışı bozmayıp, index post actiona mesaj gödnermek isterseniz : 
+
+                    context.HttpContext.Items["FilterExceptionMessage"]="Email uygun değildir";
+
+
+                    // aşağıdaki kod, controllara hiç uğramadan bir ekran açıp bizim mesajı orada yayınlar
+                    //context.Result = new BadRequestObjectResult("Email uygun değil");
+                    //return;
                 }
             }
         }

@@ -15,14 +15,25 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        IndexViewModel model = new IndexViewModel();
+        model.IsCorrect = false;
+        return View(model);
     }
 
     [HttpPost]
     [ServiceFilter(typeof(IndexActionFilter))]
-    public IActionResult Index(IndexViewModel model){
+    public IActionResult Index(IndexViewModel model)
+    {
 
-        return View();
+        // Action filterden gelen mesajı burada yakalayabiliriz
+        if (HttpContext.Items["FilterExceptionMessage"] != null)
+        {
+            var actionFilterMessage = HttpContext.Items["FilterExceptionMessage"].ToString();
+            model.ActionFilterErrorMessage = actionFilterMessage;
+            model.IsCorrect = false;
+        }
+
+        return View(model);
 
     }
 

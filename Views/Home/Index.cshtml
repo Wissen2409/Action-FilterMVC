@@ -1,7 +1,17 @@
-﻿<form method="post" action="/Home/Index">
+﻿@model IndexViewModel
 
-<input type="text" name="Email">
-<input type="text" name="Name">
-<input type="submit" value="Gönder">
-    
+@if (Model != null)
+{
+    @if (!Model.IsCorrect)
+    {
+        <p>@Model.ActionFilterErrorMessage</p>
+
+    }
+}
+<form method="post" action="/Home/Index">
+
+    <input type="text" name="Email">
+    <input type="text" name="Name">
+    <input type="submit" value="Gönder">
+
 </form>

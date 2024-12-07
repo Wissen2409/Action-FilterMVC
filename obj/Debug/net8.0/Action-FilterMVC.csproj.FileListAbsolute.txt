@@ -28,3 +28,4 @@
 /Users/emrahelis/Action-FilterMVC/obj/Debug/net8.0/Action-FilterMVC.pdb
 /Users/emrahelis/Action-FilterMVC/obj/Debug/net8.0/Action-FilterMVC.genruntimeconfig.cache
 /Users/emrahelis/Action-FilterMVC/obj/Debug/net8.0/ref/Action-FilterMVC.dll
+/Users/emrahelis/Action-FilterMVC/obj/Debug/net8.0/Action-FilterMVC.sourcelink.json
